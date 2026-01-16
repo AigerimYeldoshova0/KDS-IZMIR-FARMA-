@@ -1,15 +1,76 @@
-# Vue js 3 ile leaflet.js kütüphanesi kullanarak harita uygulaması geliştirmek. (Developing map application using Vue js 3 and leaflet.js library)
-Haritalar, uzun zamandır insanlar için dünyayı keşfetmenin en önemli yardımcılarından biri olmuştur. 1513 senesinde Piri Reis’in ünlü haritası dönemin teknolojisine rağmen oldukça detaylı ve ileri bir haritacılık örneği olarak tarihteki yerini almıştır.
+# İzmir Farma – Karar Destek Sistemi (KDS)
 
-Artık günümüzde teknolojinin de gelişmesiyle haritalar mobil ve web uygulamalarında sıkça kullanılmaktadır. Bu makalede Vue 3 ve Leaflet.js ile modern bir web uygulamasında etkileşimli haritaları nasıl oluşturacağızımı keşfedeceğiz.
+## Proje Açıklaması
+Bu proje, İzmir Farma ilaç deposu için geliştirilmiş web tabanlı bir Karar Destek Sistemidir (KDS).
+Sistem, geçmiş satış verilerini analiz ederek orta düzey yöneticilerin stok planlama ve talep tahmini kararlarını desteklemeyi amaçlamaktadır.
 
-Makalenin tamımı için : https://medium.com/@ertugrulakdag/vue-js-3-ile-leaflet-js-b8774b286a92
+---
 
-Birkaç örnek ekran görüntüsü;
-![image](https://github.com/user-attachments/assets/770de7bd-f9ae-4bee-9e85-bd7d5286bf57)
+## Senaryo Tanımı
+İlaç deposu yöneticileri, farklı şehirlerde ve farklı ilaçlarda satışların nasıl dağıldığını görmekte zorlanmaktadır.
+Bu sistem sayesinde yöneticiler;
+- Şehir bazlı satışları,
+- İlaç performanslarını,
+- Mevsimsel ve aylık satış değişimlerini
+tek bir ekrandan analiz edebilmektedir.
 
-![image](https://github.com/user-attachments/assets/63e1d415-4d92-4f27-87a9-33ac8c88ce26)
+---
 
-![image](https://github.com/user-attachments/assets/cf8448a9-bfc0-462c-ba80-575e8b381686)
+## Sistem Özellikleri
+- Türkiye haritası üzerinden 81 ilin satış analizi
+- Şehir seçimine göre ilaç listesi
+- En çok satan Top 5 ilacın bar grafik ile gösterimi
+- Seçilen ilaca ait:
+  - 12 aylık satış grafiği
+  - Mevsimsel satış dağılımı
+  - Pazar payı (halka grafik)
+- Karar destek özeti alanı
 
-![image](https://github.com/user-attachments/assets/9e32586c-65b8-422f-b87d-2280c01fc242)
+---
+
+## Kullanılan Teknolojiler
+### Frontend
+- Vue.js
+- Chart.js
+- HTML / CSS / JavaScript
+
+### Backend
+- Node.js
+- Express.js
+
+### Veritabanı
+- MySQL
+
+---
+
+## Veritabanı Yapısı
+- `cities`: Şehir bilgileri
+- `medicines`: İlaç bilgileri
+- `city_medicine_sales`: Şehir–ilaç bazlı satış verileri
+
+---
+
+## API Endpoint Listesi
+- `GET /cities` → Şehir listesini getirir
+- `GET /medicines?cityId=` → Seçilen şehre ait ilaçları getirir
+- `GET /sales?cityId=&medicineId=` → Seçilen ilaca ait satış verilerini getirir
+
+---
+
+## Kurulum Adımları
+
+### Backend
+### Backend
+- Node.js kuruludur
+- Gerekli paketler: npm install
+- Sunucu: node app.js
+
+### Frontend
+- Proje klasörüne girilir
+- npm install
+- npm run dev
+## Ortam Değişkenleri
+.env.example dosyası veritabanı bağlantı bilgilerini içermektedir.
+Gerçek bilgiler gizlilik nedeniyle paylaşılmamıştır.
+## ER Diyagramı
+Veritabanı yapısı ve ER Diyagramı proje raporu içerisinde detaylı olarak açıklanmıştır.
